@@ -1,0 +1,24 @@
+.headerBanner{
+  background-image: url('./assets/img/banner-bg.png')
+}
+
+.ratesBg{
+  background-image: url('./assets/img/chart.png')
+}
+.subscribeBg{
+  background-image: url('assets/img/subscribe.png')
+}
+.footerBg{
+  background-image: url('assets/img/footer-bg.png')
+}
+
+
+select{
+  border: none;
+  background: transparent
+}
+
+.rates .main-chart .chart-box{
+  box-sizing: border-box;
+  overflow: hidden;
+}
