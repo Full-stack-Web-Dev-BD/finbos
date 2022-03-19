@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Titillium Web';
+  src: url("../fonts/TitilliumWeb-Bold.eot");
+  src: local("Titillium Web Bold"), local("TitilliumWeb-Bold"), url("../fonts/TitilliumWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/TitilliumWeb-Bold.woff") format("woff"), url("../fonts/TitilliumWeb-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url("../fonts/TitilliumWeb-SemiBold.eot");
+  src: local("Titillium Web SemiBold"), local("TitilliumWeb-SemiBold"), url("../fonts/TitilliumWeb-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/TitilliumWeb-SemiBold.woff") format("woff"), url("../fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url("../fonts/TitilliumWeb-Light.eot");
+  src: local("Titillium Web Light"), local("TitilliumWeb-Light"), url("../fonts/TitilliumWeb-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/TitilliumWeb-Light.woff") format("woff"), url("../fonts/TitilliumWeb-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url("../fonts/TitilliumWeb-Black.eot");
+  src: local("Titillium Web Black"), local("TitilliumWeb-Black"), url("../fonts/TitilliumWeb-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/TitilliumWeb-Black.woff") format("woff"), url("../fonts/TitilliumWeb-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url("../fonts/TitilliumWeb-Regular.eot");
+  src: local("Titillium Web Regular"), local("TitilliumWeb-Regular"), url("../fonts/TitilliumWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/TitilliumWeb-Regular.woff") format("woff"), url("../fonts/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+/*# sourceMappingURL=fonts.css.map */
