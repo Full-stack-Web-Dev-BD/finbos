@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Bnb from '../../assets/img/bnb.png'
 import Web3 from "web3"
 import Contract from 'web3-eth-contract';
+import { ethers } from "ethers";
 
 import { connectWallet, getWalletAddressOrConnect } from '../../../../wallet';
 
@@ -16,6 +17,9 @@ export default function Invest() {
     const [totalRefsAmount, setTotalRefsAmount] = useState(0)
     const [userInvested, setUserInvested] = useState(0)
     const [userWithdrawn, setUserWithdrawn] = useState(0)
+    const [income, setIncome] = useState(0)
+    const [refReword, setRefReword] = useState(0)
+    const [amount, setAmount] = useState(0)
     var contract
     useEffect(() => {
         if (typeof window.web3 !== 'undefined') {
@@ -37,37 +41,43 @@ export default function Invest() {
             window.web3 = new Web3(web3Provider)
         }
         Contract.setProvider(window.web3.currentProvider);
-        contract = new Contract(abi, contractAddress);
+        return contract = new Contract(abi, contractAddress);
     }
     const fetchContractData = async () => {
         var myContract = await getContract()
-        // console.log("hello", await contract.methods.totalInvested().call())
-        console.log("contract is ", myContract)
+        console.log("contract  is:  ", myContract)
+        setTotalInvested(await contract.methods.totalInvested().call() / decimal)
+        console.log("Total Invested : ", await myContract.methods.totalInvested().call() / decimal)
+
+        var tWithdrawals = await contract.methods.totalWithdrawals().call() / decimal
+        setTotalWithdrawals(tWithdrawals);
+        console.log("Total withdrawal : ", tWithdrawals)
+
     }
 
     const fetchUserData = async () => {
         var account = await getWalletAddressOrConnect()
-        var getRefsAmount = await contract.methods.getRefsAmount(account).call({ from: account })
-        console.log("refam", getRefsAmount)
+        var myContract = await getContract()
+        console.clear()
+        console.log("Contrac  is : ", myContract)
+        var getRefsAmount = await myContract.methods.getRefsAmount(account).call({ from: account })
 
         var tUserRefsAmount = (Number(getRefsAmount[0]) + Number(getRefsAmount[1]) + Number(getRefsAmount[2])
             + Number(getRefsAmount[3]) + Number(getRefsAmount[4])) / decimal;
         setTotalRefsAmount(tUserRefsAmount);
-        fillUserInvestVariable()
-    }
+        console.log("Total refsAmount : ", tUserRefsAmount)
 
-    const fillUserInvestVariable = async () => {
 
         var account = await getWalletAddressOrConnect()
         var allDeposits = await contract.methods.getAllDeposits(account).call();
-        console.log("allDeposits", allDeposits);
+        console.log("User  deposit is  : ", allDeposits);
 
         var userInvested = 0;
         for (var i = 0; i < 10; i++) {
             userInvested = userInvested + Number(allDeposits[i][0]);
         }
         userInvested = userInvested / decimal;
-        console.log("userInvested", userInvested);
+        console.log("Total invested is : (userinvested) ", userInvested);
         setUserInvested(userInvested.toFixed(3));
 
         var userWithdrawn = 0;
@@ -75,18 +85,42 @@ export default function Invest() {
             userWithdrawn = userWithdrawn + Number(allDeposits[i][2]);
         }
         userWithdrawn = userWithdrawn / decimal;
-        console.log("userWithdrawn", userWithdrawn);
+        console.log("Total  withdrawal is : ", userWithdrawn);
         setUserWithdrawn(userWithdrawn.toFixed(3));
 
-        var calculateReward = Number(await contract.methods.calculateReward(account).call()) / decimal;
-        console.log("calculateReward", calculateReward);
+        var calculateIncome = Number(await contract.methods.calculateReward(account).call()) / decimal;
+        setIncome(calculateIncome)
+        console.log("User Income is ", calculateIncome);
 
-        // if (Number(allDeposits[0][3]) > 0) {
-        //     var shiftTextDate = timeConverter((Number(allDeposits[0][3]) + 86400));
-        //     timer(shiftTextDate);
-        // }
 
-        console.log('end fillUserInvestVariable()');
+        var getRefsAmount = await contract.methods.getRefsAmount(account).call();
+        console.log("get all ref amount ", getRefsAmount);
+        var totalUserRefsAmount = (Number(getRefsAmount[0]) + Number(getRefsAmount[1]) + Number(getRefsAmount[2])
+            + Number(getRefsAmount[3]) + Number(getRefsAmount[4])) / decimal;
+        console.log("totalUserRefsAmount is ", totalUserRefsAmount);
+        setRefReword(totalUserRefsAmount);
+
+        // makeRefLink
+
+        var origin = window.location.origin;
+        var refLink = origin + '?ref=' + account
+    }
+
+    async function invest() {
+        var account = await getWalletAddressOrConnect()
+        var myContract = await getContract()
+        console.clear()
+
+        var user = '0x0000000000000000000000000000000000000000';
+        let searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.has('ref')) {
+            user = searchParams.get('ref');
+        }
+
+        var tx = await myContract.methods.newDeposit(user).send({ from: account, value: ethers.utils.parseEther(amount) });
+        console.log("transection hash is ", tx)
+
+        // makeRefLink();
     }
     return (
         <div>
@@ -106,10 +140,10 @@ export default function Invest() {
                                         Total Invested
                                     </h3>
                                     <p className="invest-list__value"><span id="totalInvested"></span>
-                                        BNB
+                                        {totalInvested}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ {totalInvested}
+                                        $ --
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -117,10 +151,10 @@ export default function Invest() {
                                         Total Withdrawals
                                     </h3>
                                     <p className="invest-list__value"><span id="totalWithdrawals"></span>
-                                        BNB
+                                        {totalWithdrawals}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ {totalWithdrawals}
+                                        $--
                                     </p>
                                 </li>
                                 <button className="btn btn-primary main-btn main-btn_blue" onClick={e => fetchUserData()} >Connect Wallet</button>
@@ -131,8 +165,8 @@ export default function Invest() {
                                         BNB
                                     </span>
 
-                                    <input id="investAmount" type="" name="invest" placeholder="500" step="" />
-                                    <button className="main-btn main-btn_blue invest-connect__btn">
+                                    <input onChange={e => setAmount(e.target.value)} id="investAmount" type="number" name="invest" placeholder="500" step="" />
+                                    <button onClick={e => { invest() }} className="main-btn main-btn_blue invest-connect__btn">
                                         Invest Now
                                     </button>
                                 </div>
@@ -159,10 +193,10 @@ export default function Invest() {
                                         Your Withdrawals
                                     </h3>
                                     <p className="invest-list__value"><span id="userWithdrawn"></span>
-                                        BNB
+                                        {userWithdrawn} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ {userWithdrawn}
+                                        $ --
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -170,10 +204,10 @@ export default function Invest() {
                                         Your Income
                                     </h3>
                                     <p className="invest-list__value"><span id="calculateReward"></span>
-                                        BNB
+                                        {income}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ 0
+                                        $ --
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -181,10 +215,10 @@ export default function Invest() {
                                         Referral Rewards
                                     </h3>
                                     <p className="invest-list__value"><span id="totalUserRefsAmount"></span>
-                                        BNB
+                                        {totalRefsAmount} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ {totalRefsAmount}
+                                        $--
                                     </p>
                                 </li>
                             </ul>
