@@ -122,6 +122,16 @@ export default function Invest() {
 
         // makeRefLink();
     }
+
+    async function claim() {
+
+        var account = await getWalletAddressOrConnect()
+        var myContract = await getContract()
+        console.clear()
+        var tx = await myContract.methods.getRewardAll().call();
+        console.log("Reward transection is ", tx)
+        alert("Reward claimed !")
+    }
     return (
         <div>
             <section className="invest" id="invest">
@@ -224,7 +234,7 @@ export default function Invest() {
                             </ul>
                             <div className="invest-bottom">
                                 <div className="invest-offer f-center">
-                                    <button type="button" className="main-btn">
+                                    <button onClick={e => { claim() }} type="button" className="main-btn">
                                         Claim
                                     </button>
                                 </div>
