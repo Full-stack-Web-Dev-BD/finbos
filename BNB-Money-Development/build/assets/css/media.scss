@@ -1,0 +1,482 @@
+// 1340px - 992px
+@media screen and (max-width: 1340px) {
+    .container {
+        width: 992px;
+    }
+    .main-image {
+        img {
+            width: 500px;
+        }
+    }
+    .advantages-list__item {
+        max-width: unset;
+        width: 48%;
+    }
+    .advantages-list__icon img {
+        width: 120px;
+    }
+    .section-title h2 {
+        font-size: 35px;
+        line-height: 45px;
+    }
+    .faq-block {
+        max-width: 380px;
+    }
+    .faq-block__image img {
+        width: 400px;
+        transform: none;
+        margin-top: 0;
+    }
+    .credits-wrapper {
+        flex-direction: column-reverse;
+    }
+    .credits-text {
+        margin-top: 49px;
+        max-width: 100%;
+    }
+    .main-content__title {
+        font-size: 60px;
+        line-height: 70px;
+    }
+    .main-content__text {
+        font-size: 35px;
+        line-height: 50px;
+    }
+    .main-content__text span::after {
+        height: 15px;
+    }
+    section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .invest-circle {
+        bottom: -271px;
+    }
+    .faq-circle {
+        bottom: 178px;
+    }
+}
+
+// 992px - 768px
+@media screen and (max-width: 992px) {
+    .container {
+        width: 768px;   
+    }
+    .header-nav {
+        display: none;
+    }
+    .main {
+        padding-top: 50px;
+    }
+    .main-wrapper {
+        display: block;
+    }
+    .main-image {
+        display: flex;
+        justify-content: center;
+        img {
+            display: block;
+        }
+    }
+    .advantages-list__item {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .main-circle {
+        left: -200px;
+        bottom: 0;
+    }
+    .invest-block {
+        display: block;
+    }
+    .invest-wrap {
+        max-width: 100%;
+        margin-bottom: 50px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .invest-list {
+        min-height: unset;
+    }
+    .program-header {
+        display: block;
+    }
+    .program-referal {
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .program-referal input {
+        width: 100%;
+    }
+    .faq-wrapper {
+        display: block;
+    }
+    .faq-list {
+        max-width: unset;
+        width: 100%;
+    }
+    .faq-block {
+        max-width: unset;
+        width: 100%;
+        margin-top: 50px;
+    }
+    .main-image {
+        margin-top: -150px;
+        pointer-events: none;
+        width: 100%;
+        img {
+            width: 100%;
+        }
+        picture {
+            width: 100%;
+        }
+    }
+    .faq-block__image {
+        picture {
+            width: 100%;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    .credits-list {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &__item {
+            width: 48%;
+            margin-right: 0;
+        }
+        &__link {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+    .header-toggle {
+        display: block;
+        position: relative;
+        z-index: 11;
+        margin-left: 23px;
+        svg {
+            display: block;
+            transition: all .4s ease;
+        }
+    }
+    .header-logo {
+        img {
+            width: 60px;
+        }
+    }
+    .header-mobile {
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        overflow-y: auto;
+        padding: 119px 48px 30px 36px;
+        position: fixed;
+        height: 100%;
+        right: 0;
+        z-index: 10;
+        top: 0;
+        background: #BAC6EF;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .4s ease;
+        &.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+    .mobile-menu {
+        margin-bottom: 40px;
+        &__link {
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 27px;
+            letter-spacing: 0.03em;
+            color: #1F1D19;
+        }
+        &__item {
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .mobile-btns {
+        .mobile-btn {
+            margin-bottom: 15px;
+            width: 100%;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .mobile-politic {
+        margin-top: 40px;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 23px;
+        letter-spacing: 0.03em;
+        max-width: 178px;
+        color: #34312C;
+        padding-bottom: 30px;
+    }
+    html {
+        &.menu-open {
+            overflow: hidden;
+            .header-toggle {
+                // pointer-events: none;
+                svg {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}
+
+// 768px - 576px
+@media screen and (max-width: 768px) {
+    .container {
+        width: 576px;
+    }
+    .header {
+        padding-top: 20px;
+    }
+    .main-btn {
+        font-size: 15px;
+        padding: 9px 36px 8px 36px;
+    }
+    .main {
+        padding-top: 76px;
+    }
+    .main-content__title {
+        font-size: 40px;
+        line-height: 61px;
+    }
+    .main-content__text {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .main-content__text span::after {
+        height: 10px;
+        bottom: 3px;
+    }
+    .rotate-circle img {
+        width: 170px;
+    }
+    .main-circle {
+        left: -50px;
+        bottom: -70px;
+    }
+    .main-content__text {
+        max-width: 246px;
+    }
+    .main-image {
+        margin-top: -55px;
+    }
+    .advantages .section-title h2 {
+        font-size: 25px;
+        line-height: 38px;
+    }
+    .section-title h2 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .main {
+        padding-bottom: 100px;
+    }
+    .advantages-list__item {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        &:first-child {
+            margin-bottom: 50px;
+        }
+    }
+    .advantages-list__icon {
+        margin-right: 0;
+        margin-left: 15px;
+    }
+    .advantages-list__icon img {
+        width: 100px;
+    }
+    .advantages-list__title {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .advantages-list__text {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .invest-list__title {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .invest-list__value {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .invest-list__item::after {
+        top: 7px;
+    }
+    .invest-bottom {
+        margin-top: 30px;
+    }
+    .invest-connect__token {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .invest-connect input {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .invest-text {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .timeTo.timeTo-white div {
+        font-size: 18px;
+        width: 15px;
+    }
+    .invest-circle {
+        bottom: 180px;
+        right: -80px;
+    }
+    .program-wrap {
+        margin-top: 50px;
+    }
+    .program-referal__point {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .program-referal input {
+        font-size: 15px;
+        line-height: 22px;
+        padding: 13px 30px;
+    }
+    .program-referal__value {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .program-table {
+        margin-top: 30px;
+    }
+    .program-table__header {
+        font-size: 25px;
+        line-height: 38px;
+        padding: 11px 0;
+    }
+    .program-list__item {
+        padding: 8px 20px;
+    }
+    .program-list__title {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .program-list__subtitle {
+        margin-top: 3px;
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .program-list__value {
+        font-size: 18px;
+    }
+    .program-table {
+        border-radius: 30px;
+    }
+    .program-table__header {
+        border-radius: 30px 30px 0 0;
+    }
+    .faq-list__link {
+        padding: 12px 30px;
+    }
+    .faq-list__title {
+        font-size: 15px;
+        line-height: 22px;
+        max-width: 224px;
+    }
+    .faq-list__plus {
+        width: 14px;
+        height: 14px;
+        &::after, &::before {
+            width: 14px;
+            height: 2px;
+        }
+    }
+    .faq-list__item {
+        margin-bottom: 10px;
+    }
+    .faq-content__title {
+        font-size: 25px;
+        line-height: 38px;
+    }
+    .faq-content__text {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .faq-content__btn {
+        margin-top: 30px;
+        width: 246px;
+        font-size: 15px;
+        line-height: 23px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+    .credits {
+        padding-top: 20px;
+        padding-bottom: 33px;
+    }
+    .credits-text {
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+    }
+    .invest-offer__timer .invest-text {
+        margin-bottom: 3px;
+    }
+    .main-text {
+        font-size: 400px;
+        left: -400px;
+        top: 23px;
+    }
+    .invest-offer__timer {
+        margin-left: 15px;
+    }
+}
+
+// 576px - 320px
+@media screen and (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+    .invest-connect input {
+        padding: 15px 167px 15px 78px;
+    }
+    .invest-connect__token {
+        width: 65px;
+    }
+    .timeTo.timeTo-white div {
+        font-size: 16px;
+        width: 14px;
+    }
+    .credits-list__link {
+        min-width: unset;
+    }
+    .faq-theme {
+        font-size: 400px;
+        left: unset;
+        right: -350px;
+    }
+    .invest-theme {
+        font-size: 400px;
+        right: -650px;
+    }
+}

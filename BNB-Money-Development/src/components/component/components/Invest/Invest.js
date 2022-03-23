@@ -3,7 +3,6 @@ import Bnb from '../../assets/img/bnb.png'
 import Web3 from "web3"
 import Contract from 'web3-eth-contract';
 import { ethers } from "ethers";
-
 import { connectWallet, getWalletAddressOrConnect } from '../../../../wallet';
 
 var decimal = 1e18;
@@ -20,8 +19,29 @@ export default function Invest() {
     const [income, setIncome] = useState(0)
     const [refReword, setRefReword] = useState(0)
     const [amount, setAmount] = useState(0)
+    const bnbRate = 407.3593
     var contract
-    useEffect(() => {
+    useEffect(async () => {
+        // fetch rate 
+        // axios.get("http://api.coinlayer.com/api/live?access_key=8a302c7070cc40effd682b5a4e5a770f")
+        //     .then(function (response) {
+        //         console.log("cnvRates", response.data.rates.BNB)
+        //         var cnvRateBNB = response.data.rates.BNB
+        //         setBnbRate(cnvRateBNB)
+        //     })
+
+
+
+
+        // =====>coingeko 
+        //2. Initiate the CoinGecko API Client
+        // const CoinGeckoClient = new CoinGecko();
+
+        // //3. Make calls
+        // let data = await CoinGeckoClient.exchanges.all();
+        // console.log("Data is ", data)
+
+
         if (typeof window.web3 !== 'undefined') {
             window.web3 = new Web3(window.web3.currentProvider)
         } else {
@@ -57,6 +77,7 @@ export default function Invest() {
 
     const fetchUserData = async () => {
         var account = await getWalletAddressOrConnect()
+        document.getElementById("connect_btn").innerHTML = "Wallet Connected"
         var myContract = await getContract()
         console.clear()
         console.log("Contrac  is : ", myContract)
@@ -80,9 +101,10 @@ export default function Invest() {
         console.log("Total invested is : (userinvested) ", userInvested);
         setUserInvested(userInvested.toFixed(3));
 
-        var userWithdrawn = 0;
+        var userWithdrawn = 0
         for (var i = 0; i < 10; i++) {
             userWithdrawn = userWithdrawn + Number(allDeposits[i][2]);
+            console.log("wamount is : ", userWithdrawn + Number(allDeposits[i][2]))
         }
         userWithdrawn = userWithdrawn / decimal;
         console.log("Total  withdrawal is : ", userWithdrawn);
@@ -104,6 +126,8 @@ export default function Invest() {
 
         var origin = window.location.origin;
         var refLink = origin + '?ref=' + account
+        console.log("my ref Link is  ", refLink);
+        document.getElementById("referralLink").value = refLink
     }
 
     async function invest() {
@@ -153,7 +177,7 @@ export default function Invest() {
                                         {totalInvested}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ --
+                                        {bnbRate !== null ? totalInvested * bnbRate : ''}$
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -164,10 +188,10 @@ export default function Invest() {
                                         {totalWithdrawals}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $--
+                                        {bnbRate !== null ? totalWithdrawals * bnbRate : ''}$
                                     </p>
                                 </li>
-                                <button className="btn btn-primary main-btn main-btn_blue" onClick={e => fetchUserData()} >Connect Wallet</button>
+                                <button id="connect_btn" className="btn btn-primary main-btn main-btn_blue" onClick={e => fetchUserData()} >Connect Wallet</button>
                             </ul>
                             <div className="invest-bottom">
                                 <div className="invest-connect">
@@ -192,10 +216,10 @@ export default function Invest() {
                                         Your Total Deposits
                                     </h3>
                                     <p className="invest-list__value"><span id="userInvested"></span>
-                                        BNB
+                                        {userInvested}  BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ {userInvested}
+                                        {bnbRate !== null ? userInvested * bnbRate : ''}$
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -206,7 +230,7 @@ export default function Invest() {
                                         {userWithdrawn} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ --
+                                        {bnbRate !== null ? userWithdrawn * bnbRate : ''}$
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -214,10 +238,10 @@ export default function Invest() {
                                         Your Income
                                     </h3>
                                     <p className="invest-list__value"><span id="calculateReward"></span>
-                                        {income}BNB
+                                        {income} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $ --
+                                        {bnbRate !== null ? income * bnbRate : ''}$
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -228,7 +252,7 @@ export default function Invest() {
                                         {totalRefsAmount} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        $--
+                                        {bnbRate !== null ? totalRefsAmount * bnbRate : ''}$
                                     </p>
                                 </li>
                             </ul>

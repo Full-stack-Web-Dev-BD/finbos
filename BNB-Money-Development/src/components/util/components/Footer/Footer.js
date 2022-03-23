@@ -53,14 +53,14 @@ export default function Footer() {
                     <h4 className="lasthead">Contacts</h4>
                     <ul className="footer-link">
                       <li> support@busdprofit.com </li>
-                    
+
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-         
+
           <div className="row">
             <div className="col-12 text-center">
               <div className="footer-bottom">
@@ -77,8 +77,8 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          
-         
+
+
         </div>
       </div>
     </div>

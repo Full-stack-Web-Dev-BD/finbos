@@ -17,13 +17,12 @@ export default function Header() {
                             <h1 className="main-content__title">
                                 BNB-MONEY
                             </h1>
-                            <p className="main-content__text">
+                            {/* <p className="main-content__text">
                                 Your Smart Investment Platform <span>in Web 3.0</span>
+                            </p> */}
+                            <p className="main-content__text" >
+                                Your Smart Investment <span>7% Daily for 30 Days</span>
                             </p>
-                            <a id="connect" className="main-content__btn main-btn btn" onClick={e => connectWallet()} >
-                                {/* <a href="#connect" className="main-content__btn main-btn scroll-link" id="connectButton"> */}
-                                Connect Now
-                            </a>
                             <a href="#invest" className="main-content__btn main-btn main-btn_blue scroll-link">
                                 Invest now
                             </a>

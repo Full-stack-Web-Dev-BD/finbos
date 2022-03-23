@@ -10,9 +10,7 @@ node_modules/
 /coverage
 
 # production
-# added commit 
-/build
-*/build
+# added commit  
 
 # misc
 .idea

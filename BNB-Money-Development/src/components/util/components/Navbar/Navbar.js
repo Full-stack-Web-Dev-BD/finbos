@@ -71,9 +71,9 @@ export default function Navbar() {
                 <li className="nav-item">
                   <a className="nav-link" href="#">Contract</a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a className="nav-link button-1" id="connect" href="#">Connect </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

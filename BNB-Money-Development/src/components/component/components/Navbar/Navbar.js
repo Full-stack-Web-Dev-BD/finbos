@@ -48,11 +48,11 @@ export default function Navbar() {
                     <div className="header-mobile">
                         <div className="header-mobile__block">
                             <ul className="mobile-menu">
-                                <li className="mobile-menu__item">
+                                {/* <li className="mobile-menu__item">
                                     <a href="#" id="connect" className="mobile-menu__link scroll-link">
                                         Connect
                                     </a>
-                                </li>
+                                </li> */}
                                 <li className="mobile-menu__item">
                                     <a href="#safety" className="mobile-menu__link scroll-link">
                                         Safety
