@@ -1,0 +1,14 @@
+.affiliate__input {
+  display: flex
+}
+.affiliate__input input{
+  border-radius: 50px 0 0 50px;
+}
+.affiliate__input button{
+  background-color: #1F3CA6;
+  padding: 0 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 50px 50px 0;
+
+}

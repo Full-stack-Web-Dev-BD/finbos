@@ -1,0 +1,90 @@
+.invest__left > div {
+  display: flex;
+  margin-bottom: 20px;
+  column-gap: 20px;
+}
+.goalCont {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 30px!important; */
+}
+.goalCont input {
+  border: 1px solid lightgray;
+  border-radius: 0 50px 50px 0;
+  padding: 10px;
+}
+.goalCont .prepend__btn {
+  border-radius: 50px 0 0 50px;
+  font-weight: bold;
+  background: rgba(31, 60, 166, 0.9);
+  color: white;
+  padding: 0 20px;
+}
+.insBalance {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  right: 3px;
+}
+.stake__btn {
+  /* background: #1F3CA6; */
+  background: #37ca1ac7;
+  font-weight: bold;
+  padding: 15px;
+  width: 50%;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin-top: 30px;
+}
+.dp-amount {
+  width: 47%;
+  text-align: right;
+  color: rgb(31, 29, 25);
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.invest__subtitle {
+  color: rgb(136, 136, 136);
+}
+.invest__number {
+  font-weight: 700;
+  color: rgb(19, 18, 18);
+}
+
+.invite__rightTop {
+  background-image: url(../../assets/img/invitebg.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+}
+.invite__rightTop .left {
+  color: white;
+}
+.invite__wallet button {
+  color: white;
+  background-color: blueviolet;
+  border-radius: 10px;
+  padding: 15px 30px;
+}
+
+.account__left > div {
+  display: flex;
+  column-gap: 30px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.claim__button {
+  background-color: rgba(55, 202, 26, 0.2);
+  color: #37ca1ac7;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 15px 30px;
+}

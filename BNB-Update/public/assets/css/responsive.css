@@ -1,0 +1,110 @@
+/*
+ * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+ */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .main-btn {
+    font-size: 15px;
+    padding: 7px 22px 7px 23px;
+  }
+  .main-content__title {
+    font-size: 22px;
+    line-height: inherit;
+  }
+  .linkList {
+    display: inherit !important;
+    margin-top: 25px !important;
+  }
+  .linkList li {
+    background-color: #fdecc5;
+    margin-right: 20px;
+    width: 40%;
+    border-radius: 15px;
+    float: left;
+    text-align: center;
+    padding: 10px 0 !important;
+    margin: 7px;
+  }
+  .main-image {
+    display: none;
+  }
+  .invite__rightTop {
+    display: none !important;
+  }
+  .dp-amount {
+    width: 72% !important;
+  }
+  .minimum {
+    width: 78% !important;
+  }
+  .account__left > div {
+    margin-bottom: 10px !important;
+  }
+  .daily {
+    margin-top: 10px;
+  }
+  .in_title {
+    text-align: center;
+  }
+  .md-show {
+    display: none !important;
+  }
+  .xs-show {
+    margin-bottom: 60px;
+    left: 0 !important;
+  }
+  .mt-xs {
+    margin-top: 15px;
+  }
+  .invest__left > .mt-xs {
+    margin-bottom: 10px;
+  }
+  .xs-gap {
+    margin-top: 35px !important;
+  }
+  .main {
+    padding-top: 30px !important;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
+}

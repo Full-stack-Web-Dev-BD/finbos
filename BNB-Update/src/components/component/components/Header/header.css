@@ -1,0 +1,43 @@
+.linkList {
+  display: flex;
+  margin-top: 50px;
+}
+.linkList li {
+  background-color: #fdecc5;
+  margin-right: 20px;
+  padding: 12px 35px;
+  border-radius: 15px;
+}
+.linkList a {
+  text-decoration: none;
+  color: #cb8a15;
+  font-weight: bold;
+}
+.ins_pool {
+  width: 100%;
+  text-align: center !important;
+}
+.header_update {
+  z-index: 999;
+  width: 100%;
+  background-color: white;
+}
+.sticky {
+  transition: all 0.5s;
+  position: fixed;
+  width: "100%";
+  position: "fixed";
+  background: "white";
+  padding: 0;
+  box-shadow: 2px 14px 37px 2px rgba(88, 67, 190, 0.38);
+  -webkit-box-shadow: 2px 14px 37px 2px rgba(88, 67, 190, 0.38);
+  -moz-box-shadow: 2px 14px 37px 2px rgba(88, 67, 190, 0.38);
+}
+.lgo {
+  width: 80px;
+}
+.stk_btn {
+  padding: 10px 45px;
+  cursor: pointer;
+  font-size: 18px;
+}

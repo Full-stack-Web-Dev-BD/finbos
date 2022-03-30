@@ -1,0 +1,34 @@
+// config
+
+.f-center-jcsb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.f-jcsb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.f-center {
+    display: flex;
+    align-items: center;
+}
+
+.f-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%cover-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

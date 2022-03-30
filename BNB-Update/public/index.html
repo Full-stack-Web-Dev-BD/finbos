@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <script>
+      window.CONTRACT_ADDRESS = "0xf8602C8f54451e515157EF565D5434d09db17D6F"; //mainnet
+      window.NETWORK_ID = 56; //mainnet
+
+      // window.CONTRACT_ADDRESS = "0xB9828D866F297b72E6EE239F025A585b70D747FD";//testnet
+      // window.NETWORK_ID = 97;//testnet
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <title>BNB Money || 10% Daily Return</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/timeTo.css" />
+    <!-- styles files -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/media.css" />
+    <style>
+      pre {
+        margin-bottom: 10px;
+        padding-left: 10px;
+        border-left: 3px #ddd solid;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="./assets/css/responsive.css" /> -->
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+  <script>
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function () {
+      myFunction();
+    };
+
+    // Get the navbar
+    var navbar = document.getElementById("header_update");
+    var npv = document.getElementById("npv");
+    var headerLogo = document.getElementById("header-logo");
+    // var headerlinkmainbtn = document.getElementById("connectBtn");
+
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      // console.log(window.pageYOffset);
+      if (window.pageYOffset >= sticky + 160) {
+        // console.log(sticky, window.pageYOffset);
+        npv.style.paddingBottom = 100;
+        navbar.classList.add("sticky");
+        headerLogo.classList.add("lgo");
+
+        // console.log("pp", npv.style.paddingBottom);
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
+</html>

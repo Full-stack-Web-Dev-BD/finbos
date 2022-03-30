@@ -152,7 +152,7 @@ export default function Invest() {
         var account = await getWalletAddressOrConnect()
         var myContract = await getContract()
         console.clear()
-        var tx = await myContract.methods.getRewardAll().call();
+        var tx = await myContract.methods.getRewardAll().send({ from: account });
         console.log("Reward transection is ", tx)
         alert("Reward claimed !")
     }
@@ -177,7 +177,8 @@ export default function Invest() {
                                         {totalInvested}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        {bnbRate !== null ? totalInvested * bnbRate : ''}$
+                                        ${bnbRate !== null ? (totalInvested * bnbRate).toFixed(2) : ''}
+
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -188,7 +189,8 @@ export default function Invest() {
                                         {totalWithdrawals}BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        {bnbRate !== null ? totalWithdrawals * bnbRate : ''}$
+                                        ${bnbRate !== null ? (totalWithdrawals * bnbRate).toFixed(2) : ''}
+
                                     </p>
                                 </li>
                                 <button id="connect_btn" className="btn btn-primary main-btn main-btn_blue" onClick={e => fetchUserData()} >Connect Wallet</button>
@@ -219,7 +221,8 @@ export default function Invest() {
                                         {userInvested}  BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        {bnbRate !== null ? userInvested * bnbRate : ''}$
+                                        ${bnbRate !== null ? (userInvested * bnbRate).toFixed(2) : ''}
+
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -230,7 +233,8 @@ export default function Invest() {
                                         {userWithdrawn} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        {bnbRate !== null ? userWithdrawn * bnbRate : ''}$
+                                        ${bnbRate !== null ? (userWithdrawn * bnbRate).toFixed(2) : ''}
+
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -241,7 +245,8 @@ export default function Invest() {
                                         {income} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        {bnbRate !== null ? income * bnbRate : ''}$
+                                        ${bnbRate !== null ? (income * bnbRate).toFixed(2) : ''}
+
                                     </p>
                                 </li>
                                 <li className="invest-list__item">
@@ -252,7 +257,8 @@ export default function Invest() {
                                         {totalRefsAmount} BNB
                                     </p>
                                     <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#565454', marginTop: '10px' }}>
-                                        {bnbRate !== null ? totalRefsAmount * bnbRate : ''}$
+                                        ${bnbRate !== null ? (totalRefsAmount * bnbRate).toFixed(2) : ''}
+
                                     </p>
                                 </li>
                             </ul>
