@@ -4,6 +4,13 @@
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .big_device {
+    display: none !important;
+  }
+  .c-balance {
+    left: 8px;
+    position: relative;
+  }
   .main-btn {
     font-size: 15px;
     padding: 7px 22px 7px 23px;
@@ -33,10 +40,10 @@
     display: none !important;
   }
   .dp-amount {
-    width: 72% !important;
+    /* width: 72% !important; */
   }
   .minimum {
-    width: 78% !important;
+    /* width: 78% !important; */
   }
   .account__left > div {
     margin-bottom: 10px !important;
@@ -67,7 +74,11 @@
     padding-top: 30px !important;
   }
 }
-
+@media only screen and (min-device-width: 481px) {
+  .small_device {
+    display: none !important;
+  }
+}
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width: 321px) {
   /* Styles */

@@ -31,7 +31,7 @@ export default function Header() {
                                 <span> 10% Daily Return </span>
                             </p>
                             <p className=" main-content__text" >
-                                <span>30% Auto Reinvestment on Withdrawal</span>
+                                <span style={{ whiteSpace: 'nowrap' }}>  30% Auto Reinvestment on Withdrawal</span>
                             </p>
                             <p className=" main-content__text mb-5" >
                                 <span>5 levels of Referral Rewards</span>

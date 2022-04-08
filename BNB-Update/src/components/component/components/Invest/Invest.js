@@ -143,170 +143,350 @@ export default function Invest() {
         alert("Reward claimed !")
     }
     return (
-        <div className='invest' id='invest'>
-            <div className="container">
-                <Row>
-                    <Col md={4}></Col>
-                    <Col md={8}>
-                        <Row className='invite__rightTop'>
-                            <Col xs={10} className='left'>
-                                <h4 style={{ fontWeight: 'bold', marginBottom: '9px', whiteSpace: 'nowrap' }}>Stable & Profitable Yield Farming Dapp</h4>
-                                <p> With Automated Users Insurance to protect late investors as well</p>
-                            </Col>
-                            <Col md={3} className='invite__wallet'>
-                                <button style={{ cursor: 'pointer' }} id="connect_btn" onClick={e => { fetchUserData(); }} >Connect Wallet</button>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={4} className='invest__left'>
-                        <div className="mt-xs xs-gap">
-                            <p className="dp-amount">Deposit Amount</p>
-                        </div>
-                        <div className='goalCont' style={{ margin: '0' }}>
-                            <div className='d-flex'>
-                                <button className='prepend__btn'>BNB</button>
-                                <input onChange={e => setAmount(e.target.value)} id="investAmount" type="number" min={0.1} name="invest" placeholder="5" step="" />
-                            </div>
-                        </div>
-                        <div>
-                            <p className="minimum">Minimum : 0.1 BNB</p>
-                        </div>
-                        <div className="daily">
-                            <div>
-                                <img style={{ width: '60px' }} src={NetWorth} alt="" />
-                            </div>
-                            <div>
-                                <p className='invest__subtitle'>Daily ROI</p>
-                                <h3 className="invest__number">10% </h3>
-                            </div>
-
-                        </div>
-                        <div>
-                            <div>
-                                <img style={{ width: '60px' }} src={Earning} alt="" />
-                            </div>
-                            <div>
-                                <p className='invest__subtitle'>Total Profit</p>
-                                <h3 className="invest__number"> 300% </h3>
-                            </div>
-
-                        </div>
-                        <div>
-                            <div>
-                                <img style={{ width: '60px' }} src={Loss} alt="" />
-                            </div>
-                            <div>
-                                <p className='invest__subtitle'>In 30 days, You'll Earn</p>
-                                <h3 className="invest__number">{amount ? (amount * 3).toFixed(3) : (defaultInvestAmount * 3).toFixed(3)} BNB</h3>
-                                {console.log("amount*3", amount ? (amount * 3).toFixed(3) : (defaultInvestAmount * 3).toFixed(3))}
-                            </div>
-                        </div>
-                        <div>
-                            <button style={{ cursor: 'pointer' }} className='stake__btn' onClick={e => invest()}>
-                                Stake
-                            </button>
-                        </div>
-                    </Col>
-                    <Col md={8}>
-
-                        <div className='xs-gap'>
-                            <h3 style={{ fontWeight: 'bold', marginBottom: '20px' }}> YOUR ACCOUNT </h3>
-                        </div>
+        <div>
+            <div className=" big_device">
+                {/* Big device */}
+                <div className='invest' id='invest'>
+                    <div className="container">
                         <Row>
-                            <Col className='account__left ' md={6}>
-                                <div className='mb-4'>
-                                    <div>
-                                        <p className='invest__subtitle mb-2'>Individual Account</p>
-                                        <h4 className="invest__number">Build Wealth</h4>
-                                    </div>
-                                    <div>
-                                        <p className='invest__subtitle mb-2'>Current Balance</p>
-                                        <h4 className="invest__number"> {myBalance > 0 ? (myBalance / decimal).toFixed(3) : 0} BNB </h4>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <button className='claim__button' style={{ cursor: 'pointer' }} onClick={e => { claim() }}>Claim</button>
-                                    </div>
-                                    <div>
-                                        <p className='invest__subtitle mb-2'>BNB to Claim</p>
-                                        <h4 className="invest__number"> {bnbToClaim} BNB </h4>
-                                    </div>
-                                </div>
-                                <div className="xs-gap">
-                                    <h4 className="invest__number">Your Goal</h4>
-                                </div>
-                                <div className='justify-content-between'>
-                                    <p className="invest__subtitle">What you have invested</p>
-                                    <h6 className='invest__number'> {userInvested} BNB </h6>
-                                </div>
-                                <div className='justify-content-between'>
-                                    <p className="invest__subtitle">What you have earned</p>
-                                    <h6 className='invest__number'>{withdraw} BNB </h6>
-                                </div>
-                            </Col>
-                            <Col className='account__right mx-auto' md={5}>
-                                <div className='d-flex justify-content-between'>
-                                    <div className="xs-gap">
-                                        <p className='invest__subtitle mb-2'>Daily Return</p>
-                                        <h4 className="invest__number">10%</h4>
-                                    </div>
-                                    <div className="xs-gap">
-                                        <p className='invest__subtitle mb-2'>Total Profit</p>
-                                        <h4 className="invest__number"> {userInvested * 3} BNB </h4>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img style={{ width: '100%', marginTop: '20px' }} src={Meter} alt="" />
-                                </div>
+                            <Col md={4}></Col>
+                            <Col md={8}>
+                                <Row className='invite__rightTop'>
+                                    <Col xs={6} className='left'>
+                                        <h4 style={{ fontWeight: 'bold', marginBottom: '9px', whiteSpace: 'nowrap' }}>Stable & Profitable Yield Farming Dapp</h4>
+                                        <p> With Automated Users Insurance to protect late investors as well</p>
+                                    </Col>
+                                    <Col md={3} className='invite__wallet'>
+                                        <button style={{ cursor: 'pointer' }} id="connect_btn" onClick={e => { fetchUserData(); }} >Connect Wallet</button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
-                        <Row style={{ columnGap: '20px' }} >
-                            <Col md={5} style={{ position: 'relative', left: '20px' }} className="xs-show">
-                                <h5 className="invest__number mb-3 text-center">Insurance Pool XS</h5>
-                                <p className='invest__subtitle mb-2 insBalance'> {insBalance} BNB </p>
-                            </Col>
-                            <Col md={6} className="xs-gap">
-                                <h5 className="invest__number in_title mb-3">The best way to Earn BNB</h5>
-                            </Col>
-                            <Col md={5} style={{ position: 'relative', left: '20px' }} className="md-show">
-                                <h5 className="invest__number mb-3 text-center">Insurance Pool</h5>
-                                <p className='invest__subtitle mb-2 insBalance'> {insBalance} BNB </p>
-                            </Col>
-                            <Col md={5}>
-                                <div className='d-flex justify-content-between'>
-                                    <h6 style={{ fontWeight: '600' }}> Total Staked Volume</h6>
-                                    <p className='invest__subtitle mb-2'> {totalInvested} BNB </p>
-                                </div>
-                                <div className='d-flex justify-content-between'>
-                                    <h6 style={{ fontWeight: '600' }}>Total Reinvestment Volume</h6>
-                                    <p className='invest__subtitle mb-2'>13%</p>
-                                </div>
+                        <Row>
+                            <Col md={4} className='invest__left'>
 
-                                <div className='d-flex justify-content-between'>
-                                    <h6 style={{ fontWeight: '600' }}>Total Claim Reward</h6>
-                                    <p className='invest__subtitle mb-2'> {totalWithdrawals} BNB </p>
+                                <div className="mt-xs " style={{ marginBottom: "10px" }}>
+                                    <p className="dp-amount"> <b>Deposit Amount</b> </p>
                                 </div>
-                                <div className='d-flex justify-content-between'>
-                                    <h6 style={{ fontWeight: '600' }}>Contract Balance</h6>
-                                    <p className='invest__subtitle mb-2'> {contractBalance} BNB </p>
+                                <div className='goalCont' style={{ margin: '0' }}>
+                                    <div className='d-flex'>
+                                        <button className='prepend__btn'>BNB</button>
+                                        <input onChange={e => setAmount(e.target.value)} id="investAmount" type="number" min={0.1} name="invest" placeholder="5" step="" />
+                                    </div>
                                 </div>
-                                {/* <div className='d-flex justify-content-between mt-3'>
+                                <div>
+                                    <p style={{ width: '55%', textAlign: 'right', color: 'gray' }} >Minimum : 0.1 BNB</p>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img style={{ width: '60px' }} src={NetWorth} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'>Daily ROI</p>
+                                        <h3 className="invest__number">10% </h3>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <div>
+                                        <img style={{ width: '60px' }} src={Earning} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'>Total Profit</p>
+                                        <h3 className="invest__number"> 300% </h3>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <div>
+                                        <img style={{ width: '60px' }} src={Loss} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'>In 30 days, You'll Earn</p>
+                                        <h3 className="invest__number">{amount ? (amount * 3).toFixed(3) : (defaultInvestAmount * 3).toFixed(3)} BNB</h3>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button style={{ cursor: 'pointer' }} className='stake__btn' onClick={e => invest()}>
+                                        Stake
+                                    </button>
+                                </div>
+                            </Col>
+                            <Col md={8}>
+
+                                <div>
+                                    <h3 style={{ fontWeight: 'bold', marginBottom: '20px' }}> YOUR ACCOUNT </h3>
+                                </div>
+                                <Row>
+                                    <Col className='account__left ' md={6}>
+                                        <div className='mb-4'>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>Individual Account</p>
+                                                <h4 className="invest__number">Build Wealth</h4>
+                                            </div>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>Current Balance</p>
+                                                <h4 className="invest__number"> {myBalance > 0 ? (myBalance / decimal).toFixed(3) : 0} BNB </h4>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <button className='claim__button' style={{ cursor: 'pointer' }} onClick={e => { claim() }}>Claim</button>
+                                            </div>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>BNB to Claim</p>
+                                                <h4 className="invest__number  "> {bnbToClaim} BNB </h4>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4 className="invest__number">Your Goal</h4>
+                                        </div>
+                                        <div className='justify-content-between'>
+                                            <p className="invest__subtitle">What you have invested</p>
+                                            <h6 className='invest__number'> {userInvested} BNB </h6>
+                                        </div>
+                                        <div className='justify-content-between'>
+                                            <p className="invest__subtitle">What you have earned</p>
+                                            <h6 className='invest__number'>{withdraw} BNB </h6>
+                                        </div>
+                                    </Col>
+                                    <Col className='account__right mx-auto' md={5}>
+                                        <div className='d-flex justify-content-between'>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>Daily Return</p>
+                                                <h4 className="invest__number">10%</h4>
+                                            </div>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>Total Profit</p>
+                                                <h4 className="invest__number"> {userInvested * 3} BNB </h4>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img style={{ width: '100%', marginTop: '20px' }} src={Meter} alt="" />
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row style={{ columnGap: '20px' }} >
+                                    <Col md={6}>
+                                        <h5 className="invest__number mb-3">The best way to Earn BNB</h5>
+                                    </Col>
+                                    <Col md={5} style={{ position: 'relative', left: '20px' }}>
+                                        <h5 className="invest__number mb-3 text-center">Insurance Pool</h5>
+                                        <p className='invest__subtitle mb-2 insBalance'> {insBalance} BNB </p>
+                                    </Col>
+                                    <Col md={5}>
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}> Total Staked Volume</h6>
+                                            <p className='invest__subtitle mb-2'> {totalInvested} BNB </p>
+                                        </div>
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}>Total Reinvestment Volume</h6>
+                                            <p className='invest__subtitle mb-2'>13%</p>
+                                        </div>
+
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}>Total Claim Reward</h6>
+                                            <p className='invest__subtitle mb-2'> {totalWithdrawals} BNB </p>
+                                        </div>
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}>Contract Balance</h6>
+                                            <p className='invest__subtitle mb-2'> {contractBalance} BNB </p>
+                                        </div>
+                                        {/* <div className='d-flex justify-content-between mt-3'>
                                     <h6 className='invest__number'>Auto Deposite on May 25</h6>
                                     <p className='invest__subtitle mb-2'>250 BNB</p>
                                 </div> */}
-                            </Col>
-                            <Col md={5}>
-                                <div className='d-flex justify-content-between mt-3'>
-                                    {/* <h6 className='invest__number'>Insurance Pool</h6> */}
-                                </div>
+                                    </Col>
+                                    <Col md={5}>
+                                        <div className='d-flex justify-content-between mt-3'>
+                                            {/* <h6 className='invest__number'>Insurance Pool</h6> */}
+                                        </div>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
-                    </Col>
-                </Row>
 
+                    </div>
+                </div>
+            </div>
+            <div className=" small_device ">
+                <div className='invest' id='invest'>
+                    <div className="container">
+                        <Row>
+                            <Col md={4}></Col>
+                            <Col md={8}>
+                                <Row className='invite__rightTop'>
+                                    <Col xs={10} className='left'>
+                                        <h4 style={{ fontWeight: 'bold', marginBottom: '9px', whiteSpace: 'nowrap' }}>Stable & Profitable Yield Farming Dapp</h4>
+                                        <p> With Automated Users Insurance to protect late investors as well</p>
+                                    </Col>
+                                    <Col md={3} className='invite__wallet'>
+                                        <button style={{ cursor: 'pointer' }} id="connect_btn" onClick={e => { fetchUserData(); }} >Connect Wallet</button>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={4} className='invest__left'>
+                                <div className="daily" style={{ marginBottom: '10px', marginTop: '35px' }}>
+                                    <div>
+                                        <img style={{ width: '60px', height: '0', visibility: 'hidden' }} src={NetWorth} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'> <b>Deposit Amount</b> </p>
+                                    </div>
+                                </div>
+                                <div className='goalCont' style={{ margin: '0' }}>
+                                    <div className='d-flex'>
+                                        <button className='prepend__btn'>BNB</button>
+                                        <input onChange={e => setAmount(e.target.value)} id="investAmount" type="number" min={0.1} name="invest" placeholder="5" step="" />
+                                    </div>
+                                </div>
+
+                                <div className="daily" style={{ marginBottom: '10px', marginTop: '0px' }}>
+                                    <div>
+                                        <img style={{ width: '60px', height: '0', visibility: 'hidden' }} src={NetWorth} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'> Minimum : 0.1 BNB </p>
+                                    </div>
+                                </div>
+                                <div className="daily mt-3">
+                                    <div>
+                                        <img style={{ width: '60px' }} src={NetWorth} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'>Daily ROI</p>
+                                        <h3 className="invest__number">10% </h3>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <div>
+                                        <img style={{ width: '60px' }} src={Earning} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'>Total Profit</p>
+                                        <h3 className="invest__number"> 300% </h3>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <div>
+                                        <img style={{ width: '60px' }} src={Loss} alt="" />
+                                    </div>
+                                    <div>
+                                        <p className='invest__subtitle'>In 30 days, You'll Earn</p>
+                                        <h3 className="invest__number">{amount ? (amount * 3).toFixed(3) : (defaultInvestAmount * 3).toFixed(3)} BNB</h3>
+                                        {console.log("amount*3", amount ? (amount * 3).toFixed(3) : (defaultInvestAmount * 3).toFixed(3))}
+                                    </div>
+                                </div>
+                                <div>
+                                    <button style={{ cursor: 'pointer' }} className='stake__btn' onClick={e => invest()}>
+                                        Stake
+                                    </button>
+                                </div>
+                            </Col>
+                            <Col md={8}>
+
+                                <div className='xs-gap'>
+                                    <h3 style={{ fontWeight: 'bold', marginBottom: '20px' }}> YOUR ACCOUNT </h3>
+                                </div>
+                                <Row>
+                                    <Col className='account__left ' md={6}>
+                                        <div className='mb-4'>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>Individual Account</p>
+                                                <h4 className="invest__number">Build Wealth</h4>
+                                            </div>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>Current Balance</p>
+                                                <h4 className="invest__number  c-balance"> {myBalance > 0 ? (myBalance / decimal).toFixed(3) : 0} BNB </h4>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <button className='claim__button' style={{ cursor: 'pointer' }} onClick={e => { claim() }}>Claim</button>
+                                            </div>
+                                            <div>
+                                                <p className='invest__subtitle mb-2'>BNB to Claim</p>
+                                                <h4 className="invest__number"> {bnbToClaim} BNB </h4>
+                                            </div>
+                                        </div>
+                                        <div className="xs-gap">
+                                            <h4 className="invest__number">Your Goal</h4>
+                                        </div>
+                                        <div className='justify-content-between'>
+                                            <p className="invest__subtitle">What you have invested</p>
+                                            <h6 className='invest__number'> {userInvested} BNB </h6>
+                                        </div>
+                                        <div className='justify-content-between'>
+                                            <p className="invest__subtitle">What you have earned</p>
+                                            <h6 className='invest__number'>{withdraw} BNB </h6>
+                                        </div>
+                                    </Col>
+                                    <Col className='account__right mx-auto' md={5}>
+                                        <div className='d-flex justify-content-between'>
+                                            <div className="xs-gap">
+                                                <p className='invest__subtitle mb-2'>Daily Return</p>
+                                                <h4 className="invest__number">10%</h4>
+                                            </div>
+                                            <div className="xs-gap">
+                                                <p className='invest__subtitle mb-2'>Total Profit</p>
+                                                <h4 className="invest__number"> {userInvested * 3} BNB </h4>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img style={{ width: '100%', marginTop: '20px' }} src={Meter} alt="" />
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row style={{ columnGap: '20px' }} >
+                                    <Col md={5} style={{ position: 'relative', left: '20px' }} className="xs-show">
+                                        <h5 className="invest__number mb-3 text-center">Insurance Pool </h5>
+                                        <p className='invest__subtitle mb-2 insBalance'> {insBalance} BNB </p>
+                                    </Col>
+                                    <Col md={6} className="xs-gap">
+                                        <h5 className="invest__number in_title mb-3">The best way to Earn BNB</h5>
+                                    </Col>
+                                    <Col md={5} style={{ position: 'relative', left: '20px' }} className="md-show">
+                                        <h5 className="invest__number mb-3 text-center">Insurance Pool</h5>
+                                        <p className='invest__subtitle mb-2 insBalance'> {insBalance} BNB </p>
+                                    </Col>
+                                    <Col md={5}>
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}> Total Staked Volume</h6>
+                                            <p className='invest__subtitle mb-2'> {totalInvested} BNB </p>
+                                        </div>
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}>Total Reinvestment Volume</h6>
+                                            <p className='invest__subtitle mb-2'>13%</p>
+                                        </div>
+
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}>Total Claim Reward</h6>
+                                            <p className='invest__subtitle mb-2'> {totalWithdrawals} BNB </p>
+                                        </div>
+                                        <div className='d-flex justify-content-between'>
+                                            <h6 style={{ fontWeight: '600' }}>Contract Balance</h6>
+                                            <p className='invest__subtitle mb-2'> {contractBalance} BNB </p>
+                                        </div>
+                                        {/* <div className='d-flex justify-content-between mt-3'>
+                                    <h6 className='invest__number'>Auto Deposite on May 25</h6>
+                                    <p className='invest__subtitle mb-2'>250 BNB</p>
+                                </div> */}
+                                    </Col>
+                                    <Col md={5}>
+                                        <div className='d-flex justify-content-between mt-3'>
+                                            {/* <h6 className='invest__number'>Insurance Pool</h6> */}
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+
+                    </div>
+                </div>
             </div>
         </div>
     )
